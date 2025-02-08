@@ -2,7 +2,7 @@
     <head>
         <title>Scada hệ thống giám sát trên Internet</title>
         <script src="public/js/FC1_Common.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
+        <script src="node_modules/socket.io/socket.io.js"></script>
         <script src="public/js/FC2_UserManagement.js"></script>
         <script src="public/js/FC3_MainScreen.js"></script>
         <script>
@@ -174,9 +174,9 @@
             <br /><br />
         </div>
         <!-- Cam bien va Bang tai -->
-        <img id = "sym_BANG_TAI" src="public/images/BANG_TAI.png"><script> fn_SymbolStatus("sym_BANG_TAI", "BANG_TAI", "BANG_TAI") </script>
+        <img id = "sym_BANG_TAI"><script> fn_SymbolStatus("sym_BANG_TAI", "BANG_TAI", "BANG_TAI") </script>
         
-        <img id = "sym_CB1" src="public/images/CB1.png"><script> fn_SymbolStatus("sym_CB1", "CB1", "CB1") </script>
+        <img id = "sym_CB1"><script> fn_SymbolStatus("sym_CB1", "CB1", "CB1") </script>
             </div>
             <img id="sym_Trang_thai_1A" src="public/images/Trang_thai_1A.png" style="display: none;">
             <script>fn_SymbolVisibility("sym_Trang_thai_1A", "Trang_thai_1A");</script>
