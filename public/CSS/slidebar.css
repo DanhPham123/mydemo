@@ -1,0 +1,430 @@
+/*Slidebar chính*/
+#slidebar {
+    position: absolute;
+    left: 5px; top: 11px;
+    width: 198px; height: 890px;
+    background-color: rgb(40, 58, 107);
+}
+/*Nút Màn chính*/
+/* From Uiverse.io by gharsh11032000 */ 
+.animated-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid;
+    border-color: transparent;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    color: greenyellow;
+    box-shadow: 0 0 0 2px greenyellow;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button svg {
+    position: absolute;
+    width: 24px;
+    fill: greenyellow;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button .arr-1 {
+    right: 16px;
+  }
+  
+  .animated-button .arr-2 {
+    left: -25%;
+  }
+  
+  .animated-button .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: #212121;
+    border-radius: 12px;
+  }
+  
+  .animated-button:hover .arr-1 {
+    right: -25%;
+  }
+  
+  .animated-button:hover .arr-2 {
+    left: 16px;
+  }
+  
+  .animated-button:hover .text {
+    transform: translateX(12px);
+  }
+  
+  .animated-button:hover svg {
+    fill: #212121;
+  }
+  
+  .animated-button:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px greenyellow;
+  }
+  
+  .animated-button:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+  }
+  
+/*Nút Màn 1*/
+.animated-button1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid;
+    border-color: transparent;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    color: greenyellow;
+    box-shadow: 0 0 0 2px greenyellow;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button1 svg {
+    position: absolute;
+    width: 24px;
+    fill: greenyellow;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button1 .arr-1 {
+    right: 16px;
+  }
+  
+  .animated-button1 .arr-2 {
+    left: -25%;
+  }
+  
+  .animated-button1 .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button1 .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button1:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: #212121;
+    border-radius: 12px;
+  }
+  
+  .animated-button1:hover .arr-1 {
+    right: -25%;
+  }
+  
+  .animated-button1:hover .arr-2 {
+    left: 16px;
+  }
+  
+  .animated-button1:hover .text {
+    transform: translateX(12px);
+  }
+  
+  .animated-button1:hover svg {
+    fill: #212121;
+  }
+  
+  .animated-button1:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px greenyellow;
+  }
+  
+  .animated-button1:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+  }
+/*Nút Màn 2*/
+.animated-button2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid;
+    border-color: transparent;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    color: greenyellow;
+    box-shadow: 0 0 0 2px greenyellow;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button2 svg {
+    position: absolute;
+    width: 24px;
+    fill: greenyellow;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button2 .arr-1 {
+    right: 16px;
+  }
+  
+  .animated-button2 .arr-2 {
+    left: -25%;
+  }
+  
+  .animated-button2 .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button2 .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button2:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: #212121;
+    border-radius: 12px;
+  }
+  
+  .animated-button2:hover .arr-1 {
+    right: -25%;
+  }
+  
+  .animated-button2:hover .arr-2 {
+    left: 16px;
+  }
+  
+  .animated-button2:hover .text {
+    transform: translateX(12px);
+  }
+  
+  .animated-button2:hover svg {
+    fill: #212121;
+  }
+  
+  .animated-button2:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px greenyellow;
+  }
+  
+  .animated-button2:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+  }
+/*Nút hiển thị đồ thị*/
+.animated-button3 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid;
+    border-color: transparent;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    color: greenyellow;
+    box-shadow: 0 0 0 2px greenyellow;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button3 svg {
+    position: absolute;
+    width: 24px;
+    fill: greenyellow;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button3 .arr-1 {
+    right: 16px;
+  }
+  
+  .animated-button3 .arr-2 {
+    left: -25%;
+  }
+  
+  .animated-button3 .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button3 .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button3:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: #212121;
+    border-radius: 12px;
+  }
+  
+  .animated-button3:hover .arr-1 {
+    right: -25%;
+  }
+  
+  .animated-button3:hover .arr-2 {
+    left: 16px;
+  }
+  
+  .animated-button3:hover .text {
+    transform: translateX(12px);
+  }
+  
+  .animated-button3:hover svg {
+    fill: #212121;
+  }
+  
+  .animated-button3:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px greenyellow;
+  }
+  
+  .animated-button3:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+  }
+/*Nút đăng nhập*/
+#bttLogin {
+    border: none;
+    background-color: rgb(120, 233, 15);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: normal;
+    cursor: pointer;
+    position: absolute;
+    width: 150px; height: 40px;
+    left: 22px; top: 750px;
+}
+/*Nút đăng xuất*/
+#bttLogout {
+    border: none;
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: normal;
+    cursor: pointer;
+    position: absolute;
+    width: 150px; height: 40px;
+    left: 22px; top: 800px;
+}
+
+/* Container của biểu tượng */
+.envelope-container {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    top: -320;
+    left: 200;
+    background-color: #f1f1f1;
+    border: 2px solid #333;
+    border-radius: 5px;
+}
+
+/* Nắp bức thư */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #333;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+/* Thông báo */
+.notification {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}

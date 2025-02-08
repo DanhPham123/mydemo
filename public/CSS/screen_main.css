@@ -1,0 +1,583 @@
+/*Màn hình chính*/
+#Screen_Main {
+    position: absolute;
+    left: 215px; top: 11px;
+    width: 1680px; height: 890px;
+    background-image: url('../images/br1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/*Nút nhấn Start*/
+.button1 {
+    position: absolute;
+    left: 20px; top: 0px;
+    width: 130px; height: 55px;
+    cursor: pointer;
+    font-size: large;
+    font-family: inherit;
+    font-weight: bold;
+    color: #19cf68;
+    background-color: #f8fdf8;
+    padding: 0.8em 2.2em;
+    border-radius: 50em;
+    border: 6px solid #8b93f8;
+    box-shadow: 0px 8px #1f35ff;
+    
+    /* Căn chữ giữa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.button1:active {
+    position: absolute;
+    top: 8px;
+    border: 6px solid #646fff;
+    box-shadow: 15px 15px;
+}
+
+  
+  
+
+/*Nút nhấn Stop*/
+/* From Uiverse.io by KhelVers */ 
+.button2 {
+    position: absolute;
+    left: 20px; top: 60px;
+    width: 130px; height: 55px;
+    cursor: pointer;
+    font-size: large;
+    font-family: inherit;
+    font-weight: bold;
+    color: #eb1010;
+    background-color: #f8fdf8;
+    padding: 0.8em 2.2em;
+    border-radius: 50em;
+    border: 6px solid #8b93f8;
+    box-shadow: 0px 8px #1f35ff;
+
+    /* Căn chữ giữa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .button2:active {
+    position: absolute;
+    top: 8px;
+    border: 6px solid #646fff;
+    box-shadow: 15px 15px;
+  }
+/*LRUN*/
+#sym_LRUN {
+    position: absolute;
+    left: 210px; top: 50px;
+    width: 45px; height: 45px;
+}
+/*LSTOP*/
+#sym_LSTOP {
+    position: absolute;
+    left: 310px; top: 50px;
+    width: 45px; height: 45px;
+}
+/* Reset và thiết lập chung */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f6f8;
+    margin: 0;
+}
+
+
+
+
+.preset-background {
+    background: linear-gradient(45deg, #526b98, #2196f3);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 10px; top: 210px;
+    width: 360px; height: 100px;
+}
+.preset-background1 {
+    background: linear-gradient(45deg, #17278a, #52f321);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 225px; top: 540px;
+    width: 360px; height: 200px;
+}
+/* HỘP THOẠI */
+/* Style cho hộp thoại */
+#dialog {
+    margin-top: 20px;
+    text-align: center;
+    background-color: #AEC3B0; /* Màu nền sáng */
+    padding: 20px;
+    border-radius: 10px; /* Các góc tròn */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bóng mờ */
+    position: absolute;
+    left: 225px; top: 360px;
+    width: 360px; height: 100px;
+}
+
+/* Style cho các nút nhấn */
+button {
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Màu sắc cho nút Nhập hàng */
+#btnNhapHang {
+    background-color: #4CAF50; /* Màu xanh lá cây */
+    color: white;
+}
+
+/* Màu sắc cho nút Xuất hàng */
+#btnXuatHang {
+    background-color: #f44336; /* Màu đỏ */
+    color: white;
+}
+
+/* Màu sắc cho nút Xác nhận */
+#btnXacNhan {
+    background-color: #2196F3; /* Màu xanh dương */
+    color: white;
+}
+/* Nút Cancel */
+#btnCancel {
+    background-color: #f44336; /* Màu đỏ */
+    color: white;
+}
+
+/* Thêm hiệu ứng khi hover */
+button:hover {
+    transform: scale(1.1); /* Phóng to nút khi hover */
+}
+
+/* Thêm hiệu ứng focus */
+button:focus {
+    outline: none; /* Bỏ outline mặc định */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Thêm bóng xung quanh nút khi focus */
+}
+.dialog-container {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f0f0f0;  /* Màu nền mặc định cho hộp thoại chính */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: center;
+    display: none; /* Mặc định ẩn hộp thoại */
+   
+}
+
+/* Hộp thoại nhập ô cần nhập hàng */
+#dialog-input {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #4cd2ed; /* Màu nền trắng cho hộp thoại nhập ô */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    text-align: center;
+    display: none; /* Mặc định ẩn hộp thoại nhập ô */
+    
+}
+
+/* Background cho hộp thoại xác nhận */
+#dialog-input {
+    background-color: #f0f0f0; /* Màu vàng sáng cho hộp thoại xác nhận */
+    border: 2px solid #ff9800; /* Đường viền cam */
+    position: absolute;
+    left: 225px; top: 350px;
+    width: 360px; height: 100px;
+}
+/*Trangj thais 1A*/
+#sym_Trang_thai_7A {
+    position: absolute;
+    left: 818px; top: 208px;
+    width: 67px; height: 67px;
+}
+/*Trangj thais 2A*/
+#sym_Trang_thai_8A {
+    position: absolute;
+    left: 948px; top: 208px;
+    width: 67px; height: 67px;
+}
+/*Trangj thais 3A*/
+#sym_Trang_thai_9A {
+    position: absolute;
+    left: 1078px; top: 208px;
+    width: 67px; height: 67px;
+}
+/*Trangj thais 4A*/
+#sym_Trang_thai_4A {
+    position: absolute;
+    left: 818px; top: 300px;
+    width: 67px; height: 67px;
+}
+/*Trangj thais 5A*/
+#sym_Trang_thai_5A {
+    position: absolute;
+    left: 948px; top: 300px;
+    width: 67px; height: 67px;
+}
+/*Trangj thais 6A*/
+#sym_Trang_thai_6A {
+    position: absolute;
+    left: 1078px; top: 300px;
+    width: 67px; height: 67px;
+}
+/*Trangj thais 7A*/
+#sym_Trang_thai_1A {
+    position: absolute;
+    left: 818px; top: 392px;
+    width: 67px; height: 67px;
+}
+/*Trangj thais 8A*/
+#sym_Trang_thai_2A {
+    position: absolute;
+    left: 948px; top: 392px;
+    width: 67px; height: 67px;
+}
+/*Trangj thais 9A*/
+#sym_Trang_thai_3A {
+    position: absolute;
+    left: 1078px; top: 392px;
+    width: 67px; height: 67px;
+}
+#sym_BANG_TAI {
+    position: absolute;
+    left: 680px; top: 650px;
+    width: 400px; height: 65px;
+}
+@keyframes moveBox {
+  from {
+    left: 720px;
+  }
+  to {
+    left: 950px; /* Khoảng cách tối đa thùng hàng di chuyển */
+  }
+}
+
+#sym_thung_hang {
+  position: absolute;
+  left: 720px;
+  top: 620px;
+  width: 60px;
+  height: 60px;
+  animation: moveBox 10s linear infinite; /* Chạy liên tục */
+}
+#sym_thung_hangCB {
+  position: absolute;
+  left: 975px;
+  top: 620px;
+  width: 60px;
+  height: 60px;
+  animation: moveBox 10s linear infinite; /* Chạy liên tục */
+}
+
+
+
+
+#sym_CB1 {
+    position: absolute;
+    left: 1000px; top: 545px;
+    width: 20px; height: 60px;
+}
+#sym_Logo_DUT {
+    position: absolute;
+    left: 0px; top: 0px;
+    width: 80px; height: 80px;
+}
+#sym_Logo_Shopee {
+    position: absolute;
+    left: 1174px; top: 1px;
+    width: 77px; height: 77px;
+}
+#buttonContainer1 {
+    position: absolute;
+    top: 10px;
+    left: 640px;   
+    width: 1250px;
+    height: 80px;
+    background-color: rgb(35, 164, 100);
+}
+.preset-background2 {
+    background: linear-gradient(45deg, #0fc9bd, #4c4f4b);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 680px; top: 730px;
+    width: 350px; height: 100px;
+}
+
+
+/* Cấu hình bảng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    position: absolute;
+    left: 1280px; top: 570px;
+    width: 550px; height: 250px;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Màu nền cho tiêu đề bảng */
+  th {
+    background-color: #c01d1d;
+  }
+  
+  /* Cải thiện màu sắc của các hàng */
+  tbody tr:nth-child(odd) {
+    background-color: #62b523;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #929537;
+  }
+  
+
+
+ /* Định dạng cho container của bức thư */
+.envelope-container {
+    position: absolute;
+    top: 10px; /* Di chuyển lên 10px từ trên cùng */
+    left: 100px; /* Di chuyển sang trái 10px */
+    width: 50px;
+    height: 40px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Định dạng cho nắp bức thư */
+  .envelope-flap {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    width: 30px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 4px;
+  }
+  
+  /* Định dạng cho số thông báo */
+  .notification {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+  }
+  
+ /* Căn giữa nội dung */
+#emptySlots {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 460px;
+    left: 1000px;
+    width: 180px;
+    height: 45px;
+}
+
+/* Tùy chỉnh giao diện của ô trống */
+.empty-slot {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    display: inline-block;
+    background-color: #ffcccc; /* Màu đỏ nhạt cho ô trống */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Ô trống có màu xanh khi có hàng vào */
+.filled-slot {
+    background-color: #c0e6a5; /* Màu xanh nhạt cho ô có hàng */
+}
+
+
+/* From Uiverse.io by vikramsinghnegi */ 
+.switch {
+    position: absolute;
+    margin: 25px 20px;
+    top: 100px;
+    left: 205px;
+  }
+  
+  .switch input {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .switch.demo3 {
+    width: 180px;
+    height: 50px;
+  }
+  
+  .switch.demo3 label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #d8ba5f;
+    border-radius: 50px;
+    box-shadow: inset 0 4px 8px 2px rgba(248, 6, 6, 0.2),
+      0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+  
+  .switch.demo3 label:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    border-radius: inherit;
+    background: #ababab;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f2f2f2), to(#ababab));
+    background: -webkit-linear-gradient(#f2f2f2, #ababab);
+    background: linear-gradient(#f2f2f2, #ababab);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.25);
+  }
+  
+  .switch.demo3 label:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -18px;
+    right: -18px;
+    bottom: -18px;
+    left: -18px;
+    border-radius: inherit;
+    background: #eee;
+    background: linear-gradient(#e5e7e6, #eee);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    filter: blur(1px);
+  }
+  
+  .switch.demo3 label i {
+    display: block;
+    height: 100%;
+    width: 60%;
+    border-radius: inherit;
+    background: silver;
+    position: absolute;
+    z-index: 2;
+    right: 40%;
+    top: 0;
+    background: #b2ac9e;
+    background: linear-gradient(#f7f2f6, #b2ac9e);
+    box-shadow: inset 0 1px 0 white, 0 0 8px rgba(0, 0, 0, 0.3),
+      0 5px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .switch.demo3 label i:after {
+    content: "";
+    position: absolute;
+    left: 15%;
+    top: 25%;
+    width: 70%;
+    height: 50%;
+    background: #d2cbc3;
+    background: linear-gradient(#cbc7bc, #d2cbc3);
+    border-radius: inherit;
+  }
+  
+  .switch.demo3 label i:before {
+    content: "Manual";
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 0 #bcb8ae, 0 -1px 0 #97958e;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    right: -60%;
+  }
+  
+  .switch.demo3 input:checked ~ label {
+    background: #9abb82;
+  }
+  
+  .switch.demo3 input:checked ~ label i {
+    right: -1%;
+  }
+  
+  .switch.demo3 input:checked ~ label i:before {
+    content: "Auto";
+    right: 115%;
+    color: #82a06a;
+    text-shadow: 0 1px 0 #afcb9b, 0 -1px 0 #111311;
+  }
+  

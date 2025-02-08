@@ -1,0 +1,319 @@
+<html>
+    <head>
+        <title>Scada hệ thống giám sát trên Internet</title>
+        <script src="js/FC1_Common.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/FC2_UserManagement.js"></script>
+        <script src="js/FC3_MainScreen.js"></script>
+        <script>
+            var socket = io("http://localhost:3000");
+        </script>
+        <link rel="stylesheet" href="CSS/screen_main.css">
+        <link rel="stylesheet" href="CSS/screen_1.css">
+        <link rel="stylesheet" href="CSS/screen_2.css">
+        <link rel="stylesheet" href="CSS/screen_3.css">
+        <link rel="stylesheet" href="CSS/logi.css">
+        <link rel="stylesheet" href="CSS/slidebar.css">
+       
+        
+        <!-- ĐĂNG NHẬP -->
+        <div id="div_login">
+          <div id="id01" class="modal">
+              <form id="modal-content1" class="modal-content animate">
+                  <div id="img_container" class="imgcontainer">
+                      <span id="closebtt" onclick="document.getElementById('id01').style.display='none'; logout();" class="close" title="Close Modal">&times;</span>
+                      <img id="img_avatar" src="images/user1.jpg" alt="Avatar" class="avatar">
+                  </div>
+                  <div id="log_container" class="container">
+                      <label for="uname"><b>Username</b></label>
+                      <input id="inputuser" type="text" placeholder="Enter Username" name="uname" required>
+  
+                      <label for="psw"><b>Password</b></label>
+                      <input id="inputpass" type="password" placeholder="Enter Password" name="psw" required>
+  
+                      <button id="bttlogin1" type="button" onclick="login();">Login</button>
+                      <label>
+                          <input type="checkbox" checked="checked" name="remember">Remember me
+                      </label>
+                  </div>
+                  <div id="login_container" class="container" style="background-color:#f1f1f1">
+                      <button id="bttcancle" type="button" onclick="document.getElementById('id01').style.display='none'; logout();" class="cancalbtn">Cancel</button>
+                      <span id="psw" class="psw">Forgot <a href="#">password?</a></span>
+                  </div>
+              </form>
+          </div>
+</div>
+
+    </head>
+    <body>
+        <div id="slidebar">
+            <!-- From Uiverse.io by gharsh11032000 --> 
+  <button id="btt_Screen_Main" onclick="fn_ScreenChange('Screen_Main', 'Screen_1', 'Screen_2','Screen_3');"class="animated-button">
+    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+      ></path>
+    </svg>
+    <span class="text">MÀN HÌNH CHÍNH</span>
+    <span class="circle"></span>
+    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+      ></path>
+    </svg>
+  </button>
+  <button id="btt_Screen_1" onclick="fn_ScreenChange('Screen_1', 'Screen_Main', 'Screen_2','Screen_3');"class="animated-button1">
+    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+      ></path>
+    </svg>
+    <span class="text">LỊCH SỬ DỮ LIỆU</span>
+    <span class="circle"></span>
+    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+      ></path>
+    </svg>
+  </button>
+  <button id="btt_Screen_2" onclick="fn_ScreenChange('Screen_2', 'Screen_Main', 'Screen_1','Screen_3');"class="animated-button2">
+    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+      ></path>
+    </svg>
+    <span class="text">QUẢN LÝ TỒN KHO</span>
+    <span class="circle"></span>
+    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+      ></path>
+    </svg>
+  </button>
+  <button id="btt_Screen_3" onclick="fn_ScreenChange('Screen_3', 'Screen_Main', 'Screen_1','Screen_2');"class="animated-button3">
+    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+      ></path>
+    </svg>
+    <span class="text">CÀI ĐẶT THÔNG SỐ</span>
+    <span class="circle"></span>
+    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+      ></path>
+    </svg>
+  </button>   
+  <button id = "bttLogout" class="btn" onclick="logout();">ĐĂNG XUẤT</button>
+        </div>
+
+        <div id="Screen_Main">
+            <!-- From Uiverse.io by vikramsinghnegi --> 
+            <div class="switch demo3">
+                <input type="checkbox" id="autoManualSwitch" checked>
+                <label><i></i></label>
+            </div>
+            <label style="position: relative; left: 100px; top: 25px; font-size: 26px; font-weight: bold; color: rgb(255, 255, 255);">BẢNG VẬN HÀNH</label>
+            <div class="preset-background">
+            <!-- NÚT ẤN -->
+            <!-- From Uiverse.io by KhelVers --> 
+            <button id="btt_Main_START" onclick="socket.emit('cmd_Mode_START', true);"class="button1">START</button>
+            <button id="btt_Main_STOP" onclick="socket.emit('cmd_Mode_STOP', true);"class="button2">STOP</button>
+            <!-- Đèn báo và tên của đèn báo -->
+            <label style="position: relative; left: 87px; top: -33px; font-size: 20px; font-weight: bold; color: rgb(255, 255, 255);">Đèn Run</label>
+            <img id = "sym_LRUN"><script> fn_SymbolStatus("sym_LRUN", "LRUN", "LRUN") </script>
+            <label style="position: relative; left: 87px; top: -33px; font-size: 20px; font-weight: bold; color: rgb(255, 255, 255);">Đèn Stop</label>
+            <img id = "sym_LSTOP"><script> fn_SymbolStatus("sym_LSTOP", "LSTOP", "LSTOP") </script>
+            </div>
+        
+            <label style="position: relative; left: -200px; top: 135px; font-size: 24px; font-weight: bold; color: rgb(12, 4, 4);">Chế độ làm việc:</label>
+            <label style="position: relative; left: 300px; top: 125px; font-size: 26px; font-weight: bold; color: rgb(12, 4, 4);">Kho A</label>
+            <label style="position: relative; left: 760px; top: 125px; font-size: 26px; font-weight: bold; color: rgb(12, 4, 4);">Kho B</label>
+                
+                </div>
+                
+                <div id="dialog" style="display: none;">
+                    <button id="btnNhapHang" onclick="socket.emit('cmd_Mode_Nhaphang', true);">Nhập hàng</button>
+                    <button id="btnXuatHang" onclick="socket.emit('cmd_Mode_Xuathang', true);">Xuất hàng</button>
+                </div>
+                <!-- Hộp thoại nhập ô cần Nhập hàng khi ở chế độ Manual -->
+                 <div id="dialog-input" class="dialog-container" style="display:none;">
+                     <label for="inputO">Nhập ô cần nhập hàng:</label>
+                     <input type="text" id="inputO" placeholder="Nhập ô">
+                     <button id="btnXacNhan">Xác nhận</button>
+                     <button id="btnCancel">Hủy</button>
+                 </div>
+            </div>
+            
+            <div class="preset-background1">
+              
+                <label style="position: relative; left: 50px; top: 0px; font-size: 20px; font-weight: bold; ">VỊ TRÍ CƠ CẤU NÂNG HẠ</label>
+            <label style="position: relative; left: -210px; top: 35px; font-size: 20px; font-weight: bold; color: rgb(245, 236, 236);">Tọa độ X</label>
+            <input 
+                    style="position: relative; left: 190px; top: -37px; text-align: center; width: 100px; height: 30px; font-size: 16px; background-color: rgb(107, 224, 224); color: rgb(0, 0, 0);" 
+                    id="tbx_Toa_do_X" 
+                    type="text" 
+                    disabled="disabled" />
+            <script>fn_IOFieldDataShow("Toa_do_X","tbx_Toa_do_X", 1);</script>
+            <br /><br />
+            <label style="position: relative; left:-89px; top: 10px; font-size: 20px; font-weight: bold; color: rgb(245, 236, 236);">Tọa độ Y</label>
+            <input 
+                    style="position: relative; left: -54px; top: 10px; text-align: center; width: 100px; height: 30px; font-size: 16px; background-color: rgb(107, 224, 224); color: rgb(0, 0, 0);" 
+                    id="tbx_Toa_do_Y" 
+                    type="text" 
+                    disabled="disabled" />
+            <script>fn_IOFieldDataShow("Toa_do_Y","tbx_Toa_do_Y", 1);</script>
+            <br /><br />
+            <label style="position: relative; left: -18px; top: -20px; font-size: 20px; font-weight: bold; color: rgb(245, 236, 236);">Tọa độ Z</label>
+            <input 
+                    style="position: relative; left: 16px; top: -20px; text-align: center; width: 100px; height: 30px; font-size: 16px; background-color: rgb(107, 224, 224); color: rgb(0, 0, 0);" 
+                    id="tbx_Toa_do_Z" 
+                    type="text" 
+                    disabled="disabled" />
+            <script>fn_IOFieldDataShow("Toa_do_Z","tbx_Toa_do_Z", 1);</script>
+            <br /><br />
+        </div>
+        <!-- Cam bien va Bang tai -->
+        <img id = "sym_BANG_TAI"><script> fn_SymbolStatus("sym_BANG_TAI", "BANG_TAI", "BANG_TAI") </script>
+        
+        <img id = "sym_CB1"><script> fn_SymbolStatus("sym_CB1", "CB1", "CB1") </script>
+            </div>
+            <img id="sym_Trang_thai_1A" src="images/Trang_thai_1A.png" style="display: none;">
+            <script>fn_SymbolVisibility("sym_Trang_thai_1A", "Trang_thai_1A");</script>
+            <img id="sym_Trang_thai_2A" src="images/Trang_thai_2A.png" style="display: none;">
+            <script>fn_SymbolVisibility("sym_Trang_thai_2A", "Trang_thai_2A");</script>
+            <img id="sym_Trang_thai_3A" src="images/Trang_thai_3A.png" style="display: none;">
+            <script>fn_SymbolVisibility("sym_Trang_thai_3A", "Trang_thai_3A");</script>
+            <img id="sym_Trang_thai_4A" src="images/Trang_thai_4A.png" style="display: none;">
+            <script>fn_SymbolVisibility("sym_Trang_thai_4A", "Trang_thai_4A");</script>
+            <img id="sym_Trang_thai_5A" src="images/Trang_thai_5A.png" style="display: none;">
+            <script>fn_SymbolVisibility("sym_Trang_thai_5A", "Trang_thai_5A");</script>
+            <img id="sym_Trang_thai_6A" src="images/Trang_thai_6A.png" style="display: none;">
+            <script>fn_SymbolVisibility("sym_Trang_thai_6A", "Trang_thai_6A");</script>
+            <img id="sym_Trang_thai_7A" src="images/Trang_thai_7A.png" style="display: none;">
+            <script>fn_SymbolVisibility("sym_Trang_thai_7A", "Trang_thai_7A");</script>
+            <img id="sym_Trang_thai_8A" src="images/Trang_thai_8A.png" style="display: none;">
+            <script>fn_SymbolVisibility("sym_Trang_thai_8A", "Trang_thai_8A");</script>
+            <img id="sym_Trang_thai_9A" src="images/Trang_thai_9A.png" style="display: none;">
+            <script>fn_SymbolVisibility("sym_Trang_thai_9A", "Trang_thai_9A");</script>
+            <img id="sym_thung_hang" src="images/thung_hang.png" style="display: none;">
+            <script>fn_SymbolVisibility("sym_thung_hang", "BANG_TAI");</script>
+            <img id="sym_thung_hangCB" src="images/thung_hang.png" style="display: none;">
+            <script>fn_SymbolVisibility("sym_thung_hangCB", "CB1");</script>
+            <div id="buttonContainer1">
+                <img id="sym_Logo_DUT" src="images/Logo_DUT.jpg" style="display: block;">
+                <img id="sym_Logo_Shopee" src="images/Logo_Shopee.jpg" style="display: block;">
+                <label style="position: relative; left: 100px; top: 16px; font-size: 20px; font-weight: bold; color: rgb(245, 236, 236); line-height: 0.7;">
+                    Trường Đại học Bách Khoa <br /><br /> Đại học Đà Nẵng
+                </label>
+                <label style="position: relative; left: 750px; top: -15px; font-size: 20px; font-weight: bold; color: rgb(245, 236, 236);">
+                    Kho hàng Đà Nẵng SOC
+                </label>
+                <br />
+                <label style="position: relative; left: 910px; top: -2px; font-size: 16px; font-weight: normal; color: rgb(245, 236, 236);">
+                    Địa chỉ: Q. Liên Chiểu, tp. Đà Nẵng
+                </label>
+                <label style="position: relative; left: 200px; top: -20px; font-size: 20px; font-weight: bold; color: rgb(245, 236, 236);">DÃY KHO CHỨA HÀNG SỐ 1</label>
+            </div>
+
+            <div class="preset-background2">
+            <!-- Ma SP -->
+            <label style="position: relative; left: 2px; top: 2px; font-size: 20px; font-weight: bold; color: rgb(9, 9, 9);">Mã sản phẩm:</label>
+            <input 
+                    style="position: relative; left: 20px; top: 2px; text-align: center; width: 150px; height: 30px; font-size: 16px; background-color: rgb(107, 224, 224); color: rgb(0, 0, 0);" 
+                    id="tbx_Ma_phat_hien" 
+                    type="text" 
+                    disabled="disabled" />
+            <script>fn_IOFieldDataShow("Ma_phat_hien","tbx_Ma_phat_hien",0);</script>
+            <br /><br />
+            <!-- Loại hàng -->
+            <label style="position: relative; left: -24px; top: -5px; font-size: 20px; font-weight: bold; color: rgb(9, 9, 9);">Loại hàng:</label>
+            <input 
+                    style="position: relative; left: 25px; top: -5px; text-align: center; width: 150px; height: 30px; font-size: 16px; background-color: rgb(107, 224, 224); color: rgb(0, 0, 0);" 
+                    id="tbx_SP_Quoc_te" 
+                    type="text" 
+                    disabled="disabled" />
+            <script>fn_IOFieldLoaihang("SP_Quoc_te", "SP_Noi_dia", "tbx_SP_Quoc_te", "tbx_SP_Noi_dia", 0);</script>
+            </div>
+
+            <!-- HIỂN THỊ SỐ LƯỢNG SP -->
+            <h2>Bảng Số Lượng Sản Phẩm</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mã Sản Phẩm</th>
+      <th>Số Lượng (Thùng)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>QT28394B9S6G7</td>
+      <td>
+        <input 
+                    style="position: relative; left: 0px; top: 0px; text-align: center; width: 150px; height: 30px; font-size: 16px; background-color: rgb(107, 224, 224); color: rgb(0, 0, 0);" 
+                    id="tbx_QT28394B9S6G7" 
+                    type="text" 
+                    disabled="disabled" />
+            <script>fn_IOFieldDataShow("QT28394B9S6G7", "tbx_QT28394B9S6G7", 0);</script>
+      </td>
+   
+    </tr>
+    <tr>
+      <td>QT247G084HZ78</td>
+      <td>
+        <input 
+                    style="position: relative; left: 0px; top: 0px; text-align: center; width: 150px; height: 30px; font-size: 16px; background-color: rgb(107, 224, 224); color: rgb(0, 0, 0);" 
+                    id="tbx_QT247G084HZ78" 
+                    type="text" 
+                    disabled="disabled" />
+            <script>fn_IOFieldDataShow("QT247G084HZ78", "tbx_QT247G084HZ78", 0);</script>
+      </td>
+     
+    </tr>
+    <tr>
+      <td>ND287X8W9F036</td>
+      <td>
+        <input 
+                    style="position: relative; left: 0px; top: 0px; text-align: center; width: 150px; height: 30px; font-size: 16px; background-color: rgb(107, 224, 224); color: rgb(0, 0, 0);" 
+                    id="tbx_ND287X8W9F036" 
+                    type="text" 
+                    disabled="disabled" />
+            <script>fn_IOFieldDataShow("ND287X8W9F036", "tbx_ND287X8W9F036", 0);</script>
+      </td>
+      
+    </tr>
+    <tr>
+      <td>ND2354ZZ6WHG7</td>
+      <td>
+        <input 
+                    style="position: relative; left: 0px; top: 0px; text-align: center; width: 150px; height: 30px; font-size: 16px; background-color: rgb(107, 224, 224); color: rgb(0, 0, 0);" 
+                    id="tbx_ND2354ZZ6WHG7" 
+                    type="text" 
+                    disabled="disabled" />
+            <script>fn_IOFieldDataShow("ND2354ZZ6WHG7", "tbx_ND2354ZZ6WHG7", 0);</script>
+      </td>
+      
+    </tr>
+  </tbody>
+</table>
+
+   <!-- Biểu tượng bức thư -->
+<div class="envelope-container">
+    <div class="envelope-flap"></div>
+    <div class="notification">3</div> <!-- Số thông báo -->
+</div>
+
+
+<input type="text" id="emptySlots" readonly 
+    style="font-size: 18px; text-align: center; padding: 10px; background-color: #f4f4f4; border: 2px solid #ccc; border-radius: 5px; width: 100px; margin: 20px auto;">
+    <label style="position: relative; left: -620px; top: 48px; font-size: 20px; font-weight: bold; color: rgb(27, 24, 24);">Tổng số ô trống</label>
+
+
+        </div>
+        
+        <div id="Screen_1" style="display:none;"></div>
+        <div id="Screen_2" style="display:none;"></div>
+        <div id="Screen_3" style="display:none;"></div>
+    </body>
+</html>
